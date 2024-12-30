@@ -19,6 +19,10 @@ jobs:
     
     - name: Install Dependencies
       run: npm ci
+    - name: Create .env file
+      run: |
+        echo "MVT_URL=${{ secrets.MVT_URL }}" >> .env
+        echo "GEOSERVER_URL=${{ secrets.GEOSERVER_URL }}" >> .env
     
     - name: Build Project
       run: npm run build
