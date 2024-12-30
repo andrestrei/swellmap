@@ -102,7 +102,8 @@ legend.onAdd = function (map) {
         labels = [];
 
     // Add a title to the legend
-    div.innerHTML += '<h4>SWH (m)</h4>';
+    // div.innerHTML += '<h4>SWH (m)</h4>';
+    div.innerHTML += '';
 
     // loop through our density intervals and generate a label with a colored square for each interval
     for (var i = 0; i < legendIntervals.length; i++) {
