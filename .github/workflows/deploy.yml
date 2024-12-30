@@ -22,7 +22,6 @@ jobs:
     - name: Create .env file
       run: |
         echo "MVT_URL=${{ secrets.MVT_URL }}" >> .env
-        echo "GEOSERVER_URL=${{ secrets.GEOSERVER_URL }}" >> .env
         echo "CAPABILITIES_URL=${{ secrets.CAPABILITIES_URL }}" >> .env
     
     - name: Build Project

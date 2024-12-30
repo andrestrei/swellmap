@@ -86,7 +86,7 @@ const options = {
     // vectorTileLayerStyle, // default undefined
 };
 
-const baseUrl = process.env.MVT_URL;
+const tileServerUrl = process.env.MVT_URL;
 const capabilitiesUrl = process.env.CAPABILITIES_URL;
 
 function getColor(d) {
@@ -171,7 +171,7 @@ fetchAvailableDates().then(timeValues => {
         document.getElementById('time-info').innerText = `${formattedInitialUtcTime} | ${formattedInitialLocalTime}`;
 
         // console.log('Initial time set to:', initialTime);
-        const mvt_url = `${baseUrl}/swh_contours_datetime/{z}/{x}/{y}?datetime=${initialTime}`;
+        const mvt_url = `${tileServerUrl}/swh_contours_datetime/{z}/{x}/{y}?datetime=${initialTime}`;
         let currentLayer = vectorTileLayer(mvt_url, options);
         currentLayer.addTo(map);
 
@@ -186,7 +186,7 @@ fetchAvailableDates().then(timeValues => {
         });
 
         const updateLayerTime = (newTime) => {
-            const updatedUrl = `${baseUrl}/swh_contours_datetime/{z}/{x}/{y}?datetime=${newTime}`;
+            const updatedUrl = `${tileServerUrl}/swh_contours_datetime/{z}/{x}/{y}?datetime=${newTime}`;
             if (currentLayer) {
                 map.removeLayer(currentLayer);
             }
