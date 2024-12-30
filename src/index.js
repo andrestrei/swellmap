@@ -87,7 +87,7 @@ const options = {
 };
 
 const baseUrl = process.env.MVT_URL;
-const capabilitiesUrl = process.env.GEOSERVER_URL;
+const capabilitiesUrl = process.env.CAPABILITIES_URL;
 
 function getColor(d) {
     if (d > 15) return '#000000';
@@ -119,7 +119,7 @@ legend.addTo(map);
 
 async function fetchAvailableDates() {
     try {
-        const response = await axios.get(`${capabilitiesUrl}/ows?service=wms&version=1.3.0&request=GetCapabilities`);
+        const response = await axios.get(`${capabilitiesUrl}`);
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(response.data, 'text/xml');
         const dimensionElements = xmlDoc.getElementsByTagName('Dimension');
